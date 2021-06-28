@@ -11,24 +11,16 @@ namespace DummyNamespace;
 class DummyClass
 {
 
-    /*
-     * The feature name
-     */
+    // The feature name
     public $name = '__TITLE__';
 
-    /*
-     * A small description for the feature
-     */
+    // A small description for the feature
     public $description = '__DESCRIPTION__';
 
-    /*
-    * The message to be displayed to the user when they cancel premium
-    */
+    // The message to be displayed to the user when they cancel premium
     public $cancelWarning = '__CANCEL_WARNING__';
 
-    /*
-     * The string to use when checking this feature
-     */
+    // The string to use when checking this feature
     public $checkString = '__CHECK_STRING__';
 
     public function authorise()
