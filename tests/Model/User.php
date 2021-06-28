@@ -7,8 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Class User
- *
- * @package Assada\Tests\Model
  */
 class User extends Authenticatable
 {

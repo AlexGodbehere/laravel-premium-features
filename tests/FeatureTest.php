@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use App\Domain\TestDomain\Features\TestFeature;
 
 /**
- * Class AchievementTest
- *
- * @package Assada\Tests
+ * Class FeatureTest
  */
 class FeatureTest extends DBTestCase
 {

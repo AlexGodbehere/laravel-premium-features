@@ -10,8 +10,6 @@ use AlexGodbehere\LaravelPremiumFeatures\AchievementsServiceProvider;
 
 /**
  * Class DBTestCase
- *
- * @package Assada\Tests
  */
 class DBTestCase extends TestCase
 {
