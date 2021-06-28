@@ -52,12 +52,11 @@ class FeatureTest extends DBTestCase
     public function testCreateFeature()
     {
 
-        $this->artisan('make:feature TestFeature TestDomain TestFeature TestDescription CancelText CheckString')->run();
+        $this->artisan('make:feature TestFeature TestDomain TestFeature TestDescription CancelText')->run();
         $this->assertDatabaseHas('features', [
           'name'           => 'TestFeature',
           'description'    => 'TestDescription',
           'cancel_warning' => 'CancelText',
-          'check_string'   => 'CheckString',
           'class_name'     => TestFeature::class,
 
         ]);

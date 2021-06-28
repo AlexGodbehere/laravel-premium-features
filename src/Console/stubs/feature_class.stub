@@ -20,9 +20,6 @@ class DummyClass
     // The message to be displayed to the user when they cancel premium
     public $cancelWarning = '__CANCEL_WARNING__';
 
-    // The string to use when checking this feature
-    public $checkString = '__CHECK_STRING__';
-
     public function authorise()
     {
 

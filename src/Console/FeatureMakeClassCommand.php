@@ -23,7 +23,7 @@ class FeatureMakeClassCommand extends GeneratorCommand
      */
     protected $name = 'make:feature-class';
 
-    protected $signature = 'make:feature-class {name} {domain} {title} {description} {cancel} {check}';
+    protected $signature = 'make:feature-class {name} {domain} {title} {description} {cancel}';
 
     /**
      * The console command description.
@@ -44,8 +44,8 @@ class FeatureMakeClassCommand extends GeneratorCommand
 
         $stub = $this->files->get(__DIR__.'/stubs/feature_class.stub');
 
-        $stub = str_replace(['__TITLE__', '__DESCRIPTION__', '__CANCEL_WARNING__', '__CHECK_STRING__'], [
-          $this->argument('title'), $this->argument('description'), $this->argument('cancel'), $this->argument('check'),
+        $stub = str_replace(['__TITLE__', '__DESCRIPTION__', '__CANCEL_WARNING__'], [
+          $this->argument('title'), $this->argument('description'), $this->argument('cancel'),
         ], $stub);
 
         return $this->replaceNamespace($stub, $name)->replaceClass($stub, $name);

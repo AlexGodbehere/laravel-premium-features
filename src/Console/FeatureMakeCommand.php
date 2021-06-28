@@ -18,7 +18,7 @@ class FeatureMakeCommand extends Command
 
     protected $name = 'make:feature';
 
-    protected $signature = 'make:feature {name} {domain} {title} {description} {cancel} {check}';
+    protected $signature = 'make:feature {name} {domain} {title} {description} {cancel}';
 
     protected $description = 'Create a new premium feature';
 
@@ -55,7 +55,6 @@ class FeatureMakeCommand extends Command
           'title'       => $this->argument('title'),
           'description' => $this->argument('description'),
           'cancel'      => $this->argument('cancel'),
-          'check'       => $this->argument('check'),
         ]);
 
         // Add the feature to the database
@@ -63,7 +62,6 @@ class FeatureMakeCommand extends Command
           'name'           => $this->argument('title'),
           'description'    => $this->argument('description'),
           'cancel_warning' => $this->argument('cancel'),
-          'check_string'   => $this->argument('check'),
           'class_name'     => 'App\Domain\\'.$this->argument('domain').'\Features\\'.$this->argument('name'),
         ]);
 

@@ -21,7 +21,6 @@ class CreateFeaturesTables extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('cancel_warning')->comment('The string used to warn the user what will happen with this feature if they cancel their membership.');
-            $table->string('check_string')->comment('The string used to check if somebody can do something (e.g. can(purchase_aircraft))');
             $table->string('class_name');
             $table->timestamps();
         }
