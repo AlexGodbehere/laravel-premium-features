@@ -57,6 +57,9 @@ class FeatureMakeCommand extends Command
           'cancel'      => $this->argument('cancel'),
         ]);
 
+        // Generate the feature test
+
+
         // Add the feature to the database
         Feature::create([
           'name'           => $this->argument('title'),
