@@ -75,7 +75,7 @@ class FeatureMakeCommand extends Command
 
         // Import Feature
         $find = "use Illuminate\Support\Facades\Schema;\n";
-        $replace = "use Illuminate\Support\Facades\Schema;\nuse AlexGodbehere\LaravelPremiumFeatures\Feature;\n";
+        $replace = "use Illuminate\Support\Facades\Schema;\nuse AlexGodbehere\LaravelPremiumFeatures\Model\Feature;\n";
         file_put_contents($latestMigrationPath, str_replace($find, $replace, file_get_contents($latestMigrationPath)));
 
         // Add the seeder
