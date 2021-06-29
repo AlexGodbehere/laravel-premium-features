@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace AlexGodbehere\LaravelPremiumFeatures;
 
 use AlexGodbehere\LaravelPremiumFeatures\Console\FeatureMakeCommand;
+use AlexGodbehere\LaravelPremiumFeatures\Console\FeatureMakeTestCommand;
 use AlexGodbehere\LaravelPremiumFeatures\Feature;
 use AlexGodbehere\LaravelPremiumFeatures\Console\FeatureMakeClassCommand;
 use Illuminate\Support\ServiceProvider;
@@ -31,6 +32,7 @@ class AchievementsServiceProvider extends ServiceProvider
               [
                 FeatureMakeCommand::class,
                 FeatureMakeClassCommand::class,
+                FeatureMakeTestCommand::class,
               ]
             );
         }

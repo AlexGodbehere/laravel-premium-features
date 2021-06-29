@@ -58,7 +58,13 @@ class FeatureMakeCommand extends Command
         ]);
 
         // Generate the feature test
-
+        Artisan::call('make:feature-test', [
+          'name'        => $this->argument('name'),
+          'domain'      => $this->argument('domain'),
+          'title'       => $this->argument('title'),
+          'description' => $this->argument('description'),
+          'cancel'      => $this->argument('cancel'),
+        ]);
 
         // Add the feature to the database
         Feature::create([
