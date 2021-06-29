@@ -81,10 +81,10 @@ class FeatureMakeCommand extends Command
         // Add the seeder
         $find = "public function up()\n    {\n        //\n    }\n";
         $replace = "public function up()\n    {\n        Feature::create([
-          'name'           => '".$this->argument('title')."'',
-          'description'    => '".$this->argument('description')."'',
-          'cancel_warning' => '".$this->argument('cancel')."'',
-          'class_name'     => 'App\Domain\\".$this->argument('domain')."\Features\\".$this->argument('name')."'',
+          'name'           => '".$this->argument('title')."',
+          'description'    => '".$this->argument('description')."',
+          'cancel_warning' => '".$this->argument('cancel')."',
+          'class_name'     => 'App\Domain\\".$this->argument('domain')."\Features\\".$this->argument('name')."',
         ]);\n    }\n";
         file_put_contents($latestMigrationPath, str_replace($find, $replace, file_get_contents($latestMigrationPath)));
 
