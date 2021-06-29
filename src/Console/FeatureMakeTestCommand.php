@@ -26,7 +26,7 @@ class FeatureMakeTestCommand extends GeneratorCommand
     : string
     {
 
-        return __DIR__.'/stubs/action_test.stub';
+        return __DIR__.'/stubs/feature_test.stub';
     }
 
     /**

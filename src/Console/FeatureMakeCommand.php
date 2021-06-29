@@ -59,12 +59,37 @@ class FeatureMakeCommand extends Command
 
         // Generate the feature test
         Artisan::call('make:feature-test', [
-          'name'        => $this->argument('name'),
-          'domain'      => $this->argument('domain'),
-          'title'       => $this->argument('title'),
-          'description' => $this->argument('description'),
-          'cancel'      => $this->argument('cancel'),
+          'name'   => $this->argument('name'),
+          'domain' => $this->argument('domain'),
         ]);
+
+        // Create a migration to seed the new feature to the database
+        $migrationName = 'seed__'.strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $this->argument('name')));
+        Artisan::call('make:migration '.$migrationName);
+        $dirArray = scandir(base_path().'/database/migrations');
+        $latestMigrationName = $dirArray[count($dirArray) - 1];
+        $latestMigrationPath = base_path().'/database/migrations/'.$latestMigrationName;
+        if (!str_contains($latestMigrationName, 'seed__')) {
+            return;
+        }
+
+        // Import Feature
+        $find = "use Illuminate\Support\Facades\Schema;\n";
+        $replace = "use Illuminate\Support\Facades\Schema;\nuse AlexGodbehere\LaravelPremiumFeatures\Feature;\n";
+        file_put_contents($latestMigrationPath, str_replace($find, $replace, file_get_contents($latestMigrationPath)));
+
+        // Add the seeder
+        $find = "public function up()\n    {\n        //\n    }\n";
+        $replace = "public function up()\n    {\n        Feature::create([
+          'name'           => ".$this->argument('title').",
+          'description'    => ".$this->argument('description').",
+          'cancel_warning' => ".$this->argument('cancel').",
+          'class_name'     => 'App\Domain\\".$this->argument('domain')."\Features\\".$this->argument('name').",
+        ]);\n    }\n";
+        file_put_contents($latestMigrationPath, str_replace($find, $replace, file_get_contents($latestMigrationPath)));
+
+        $latestMigrationPath = base_path().'/database/migrations/'.$latestMigrationName;
+//        dump(file_get_contents($latestMigrationPath));
 
         // Add the feature to the database
         Feature::create([

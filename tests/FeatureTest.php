@@ -46,20 +46,18 @@ class FeatureTest extends DBTestCase
         $this->assertEquals($this->users[4]->name, 'Gamer4');
     }
 
-    /**
-     * Tests unlocking features.
-     */
-    public function testCreateFeature()
+    public function testCreateMigration()
     {
 
         $this->artisan('make:feature TestFeature TestDomain TestFeature TestDescription CancelText')->run();
-        $this->assertDatabaseHas('features', [
-          'name'           => 'TestFeature',
-          'description'    => 'TestDescription',
-          'cancel_warning' => 'CancelText',
-          'class_name'     => TestFeature::class,
+        $dirArray = scandir(base_path().'/database/migrations');
+        $latestMigrationName = $dirArray[count($dirArray) - 1];
+        $latestMigrationPath = base_path().'/database/migrations/'.$latestMigrationName;
 
-        ]);
+        self::assertStringContainsString("'name'           => TestFeature,\n", file_get_contents($latestMigrationPath));
+
+        // Clean up
+        unlink($latestMigrationPath);
     }
 
 }
