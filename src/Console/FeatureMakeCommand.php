@@ -91,14 +91,6 @@ class FeatureMakeCommand extends Command
         $latestMigrationPath = base_path().'/database/migrations/'.$latestMigrationName;
 //        dump(file_get_contents($latestMigrationPath));
 
-        // Add the feature to the database
-        Feature::create([
-          'name'           => $this->argument('title'),
-          'description'    => $this->argument('description'),
-          'cancel_warning' => $this->argument('cancel'),
-          'class_name'     => 'App\Domain\\'.$this->argument('domain').'\Features\\'.$this->argument('name'),
-        ]);
-
         return true;
     }
 
