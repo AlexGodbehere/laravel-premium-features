@@ -8,6 +8,8 @@
 
 namespace DummyNamespace;
 
+use App\Domain\Subscriptions\Actions\CancelSubscriptionAction;
+use App\Domain\Subscriptions\Actions\ResumeSubscriptionAction;
 use Tests\TestCase;
 
 class DummyClassTest extends TestCase
@@ -25,6 +27,10 @@ class DummyClassTest extends TestCase
     {
 
         self::markTestIncomplete('Not yet implemented.');
+
+        // Cancel premium
+        (new CancelSubscriptionAction())->execute();
+
     }
 
     /** @test */
@@ -32,6 +38,14 @@ class DummyClassTest extends TestCase
     {
 
         self::markTestIncomplete('Not yet implemented.');
+
+        // Cancel premium
+        (new CancelSubscriptionAction())->execute();
+
+
+
+        // Resume premium
+        (new ResumeSubscriptionAction())->execute();
     }
 
 }
