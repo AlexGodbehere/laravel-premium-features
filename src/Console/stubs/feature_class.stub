@@ -26,7 +26,7 @@ class DummyClass
     }
 
     /**
-     * When a user cancels premium all aircraft for companies that they are directors for should be frozen except for the oldest three.
+     * When a user cancels premium...
      */
     public function onCancelPremium(User $user)
     {
@@ -34,7 +34,7 @@ class DummyClass
     }
 
     /**
-     * If a user re-activates premium then all of their frozen
+     * If a user re-activates premium...
      */
     public function onReactivatePremium(User $user)
     {
