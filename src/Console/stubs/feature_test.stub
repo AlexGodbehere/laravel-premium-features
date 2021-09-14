@@ -16,10 +16,13 @@ class DummyClassTest extends TestCase
 {
 
     /** @test */
-    public function it_can_be_authorised()
+    public function a_premium_user_can_()
     {
+    }
 
-        self::markTestIncomplete('Not yet implemented.');
+    /** @test */
+    public function a_free_user_can_not_()
+    {
     }
 
     /** @test */
@@ -41,7 +44,6 @@ class DummyClassTest extends TestCase
 
         // Cancel premium
         (new CancelSubscriptionAction())->execute();
-
 
 
         // Resume premium
