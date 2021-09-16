@@ -44,6 +44,7 @@ class AchievementsServiceProvider extends ServiceProvider
         $this->publishes(
           [
             __DIR__.'/Migrations/0000_00_00_000000_create_features_tables.php' => database_path('migrations'),
+            __DIR__.'/Migrations/2021_09_16_210126_add_marketing_lines_to_features.php' => database_path('migrations'),
           ],
           'migrations'
         );
