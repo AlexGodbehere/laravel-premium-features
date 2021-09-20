@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace DummyNamespace;
 
+use App\Domain\Users\Models\User;
+
 /**
  * Class Registered
  *
